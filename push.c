@@ -13,7 +13,11 @@ stack_t *push_queue(stack_t **head, const int n)
 	stack_t *h = *head;
 
 	if (new_node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		_error(EXIT_FAILURE, WRITE);
 		return (NULL);
+	}
 	new_node->n = n;
 	new_node->next = NULL;
 	while (h && h->next)
@@ -42,7 +46,11 @@ stack_t *push_stack(stack_t **head, const int n)
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		_error(EXIT_FAILURE, WRITE);
 		return (NULL);
+	}
 	new_node->n = n;
 	new_node->prev = NULL;
 	new_node->next = *head;

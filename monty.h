@@ -214,6 +214,14 @@ int _mode(int data, int mode);
 int _data(int data, int mode);
 
 /**
+ * _error - set or read the error of the program
+ * @data: error to set
+ * @mode: reading or writing
+ * Return: mode which is READ or WRITE
+ */
+int _error(int data, int mode);
+
+/**
  * rotr - rotates stack/queue to the bottom
  * @stack: stack/queue data structure
  * @line_number: current line number

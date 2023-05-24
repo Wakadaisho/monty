@@ -32,3 +32,19 @@ int _data(int data, int mode)
 
 	return (DATA);
 }
+
+/**
+ * _error - set or read the error of the program
+ * @data: error to set
+ * @mode: reading or writing
+ * Return: mode which is READ or WRITE
+ */
+int _error(int data, int mode)
+{
+	static int ERROR;
+
+	if (mode)
+		ERROR = data;
+
+	return (ERROR);
+}
