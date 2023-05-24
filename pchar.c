@@ -30,6 +30,5 @@ int pchar_stack(stack_t *head)
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
-
 	printf("%c\n", peek(stack));
 }

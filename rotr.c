@@ -9,17 +9,29 @@
  */
 void rotr_queue(stack_t **head, unsigned int line_number)
 {
-	int i;
+	int a;
+	stack_t *h;
 
 	if (head == NULL || *head == NULL)
 		return;
-
 	_mode(STACK, WRITE);
-	i = peek(head);
-	pop(head, line_number);
-	_data(i, WRITE);
-	_mode(QUEUE, WRITE);
+	h = *head;
+	while (h->next)
+		h = h->next;
+
+	a = h->n;
+	if (h->prev)
+	{
+		h->prev->next = NULL;
+		free(h);
+	}
+	else
+	{
+		pop(head, line_number);
+	}
+	_data(a, WRITE);
 	push(head, line_number);
+	_mode(QUEUE, WRITE);
 }
 
 /**
@@ -30,16 +42,26 @@ void rotr_queue(stack_t **head, unsigned int line_number)
  */
 void rotr_stack(stack_t **head, unsigned int line_number)
 {
-	int i;
+	int a;
+	stack_t *h;
 
 	if (head == NULL || *head == NULL)
 		return;
+	h = *head;
+	while (h->next)
+		h = h->next;
 
-	_mode(QUEUE, WRITE);
-	i = peek(head);
-	pop(head, line_number);
-	_data(i, WRITE);
-	_mode(STACK, WRITE);
+	a = h->n;
+	if (h->prev)
+	{
+		h->prev->next = NULL;
+		free(h);
+	}
+	else
+	{
+		pop(head, line_number);
+	}
+	_data(a, WRITE);
 	push(head, line_number);
 }
 

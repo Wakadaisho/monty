@@ -64,7 +64,7 @@ int read_error(char **tokens, stack_t **stack, unsigned int line_number)
 	if (strcmp(tokens[0], "pchar") == 0)
 	{
 		i = peek(stack);
-		if (i < 0 || i > 255)
+		if (i < 0 || i > 177)
 		{
 			fprintf(stderr, long_error, line_number, tokens[0]);
 			return (EXIT_FAILURE);
