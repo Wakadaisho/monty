@@ -10,7 +10,7 @@
  */
 int pstr_queue(stack_t *head)
 {
-	if (head == NULL || (head->n <= 0 || head->n > 177))
+	if (head == NULL || (head->n <= 0 || head->n > 127))
 		return (0);
 
 	return (printf("%c", head->n) + pstr_queue(head->next));
@@ -24,7 +24,7 @@ int pstr_queue(stack_t *head)
  */
 int pstr_stack(stack_t *head)
 {
-	if (head == NULL || (head->n <= 0 || head->n > 177))
+	if (head == NULL || (head->n <= 0 || head->n > 127))
 		return (0);
 	return (printf("%c", head->n) + pstr_stack(head->next));
 }
