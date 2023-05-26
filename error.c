@@ -17,12 +17,14 @@ int push_error(char **tokens, unsigned int line_number)
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
 		return (EXIT_FAILURE);
 	}
-	_data(atoi(tokens[1]), WRITE);
-	if (_data(0, READ) == 0 && *tokens[1] != '0')
+
+	if (isnumber(tokens[1]) == 1)
 	{
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
 		return (EXIT_FAILURE);
 	}
+
+	_data(atoi(tokens[1]), WRITE);
 
 	return (EXIT_SUCCESS);
 }

@@ -261,4 +261,13 @@ void _stack(stack_t **stack, unsigned int line_number);
  */
 int find(char **list, char *query);
 
+/**
+ * isnumber - check whether a string is a number or not
+ *
+ *  @str: string to check
+ *
+ * Return: 0 if number, 1 otherwise
+ */
+int isnumber(char *str);
+
 #endif /* _MONTY_H_ */
